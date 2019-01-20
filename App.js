@@ -4,12 +4,14 @@ import { Provider } from 'react-redux';
 import reducer from './reducers'
 import { StyleSheet, Text, View, Image, FlatList } from 'react-native';
 import DeckList from './components/DeckList';
+import TopBar from './components/TopBar';
 
 export default class App extends React.Component {
 
   render() {
     return (
       <Provider store={createStore(reducer)}>
+        <TopBar />
         <View style={styles.container}>
           <DeckList />
         </View>
