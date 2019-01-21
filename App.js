@@ -4,14 +4,15 @@ import { Provider } from 'react-redux';
 import reducer from './reducers'
 import { StyleSheet, Text, View, Image, FlatList } from 'react-native';
 import DeckList from './components/DeckList';
-import TopBar from './components/TopBar';
+import SystemTopBar from './components/SystemTopBar';
+import { primaryColor } from './utils/helpers';
 
 export default class App extends React.Component {
 
   render() {
     return (
       <Provider store={createStore(reducer)}>
-        <TopBar />
+        <SystemTopBar backgroundColor={primaryColor}/>
         <View style={styles.container}>
           <DeckList />
         </View>
