@@ -12,6 +12,7 @@ import QuizScreen from './components/QuizScreen';
 import CreateQuizQuestionScreen from './components/CreateQuizQuestionScreen';
 import QuizQuestionScreen from './components/QuizQuestionScreen';
 import QuizAnswerScreen from './components/QuizAnswerScreen';
+import QuizResultScreen from './components/QuizResultScreen';
 
 export default class App extends React.Component {
 
@@ -37,7 +38,10 @@ export default class App extends React.Component {
             // <QuizQuestionScreen/>
           }
           {
-            <QuizAnswerScreen/>
+            // <QuizAnswerScreen/>
+          }
+          {
+            <QuizResultScreen/>
           }
         </View>
       </Provider>

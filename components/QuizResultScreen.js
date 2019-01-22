@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
 import { defaultBorderColor, darkColor } from '../utils/helpers';
 
-export default class QuizQuestionScreen extends Component {
+export default class QuizResultScreen extends Component {
 
   someFunction = () => {}
 
@@ -11,15 +11,21 @@ export default class QuizQuestionScreen extends Component {
     return (
       <Fragment>
         <View style={styles.view}>
-          <Text style={styles.questionsLeft}>Questions left: 14</Text>
           <View style={styles.card}>
-            <Text style={styles.textContent}>On React, you should always give preference to mutate data directly to avoid errors and bugs.</Text>
+            <Text style={styles.textContent}>You've got</Text>
+            <Text style={styles.textContent}>13/15</Text>
           </View>
           <Button
             large
-            icon={{name: 'eye', type: 'font-awesome'}}
-            title='Show Answer'
-            buttonStyle={styles.btnShowAnswer}
+            icon={{name: 'refresh', type: 'ionicons'}}
+            title='Restart Quiz'
+            buttonStyle={styles.btn}
+          />
+          <Button
+            large
+            icon={{name: 'arrow-back', type: 'ionicons'}}
+            title='Back to Deck'
+            buttonStyle={styles.btn}
           />
         </View>
       </Fragment>
@@ -38,24 +44,20 @@ const styles = StyleSheet.create({
     marginRight: 20,
     marginTop: 20
   },
-  btnShowAnswer: {
+  btn: {
     marginBottom: 20,
     backgroundColor: darkColor,
     borderRadius: 5
   },
   card: {
     flex: 1,
-    borderColor: defaultBorderColor,
-    borderWidth: 1,
-    borderStyle: 'dashed',
     margin: 15,
     borderRadius: 5,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   textContent: {
     fontSize: 30,
-    padding: 30,
     textAlign: 'center'
   }
 });

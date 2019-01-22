@@ -47,7 +47,8 @@ const styles = StyleSheet.create({
   },
   btnSubmit: {
     marginBottom: 20,
-    backgroundColor: darkColor
+    backgroundColor: darkColor,
+    borderRadius: 5
   },
   amountCardsLeft: {
     textAlign: 'right',
