@@ -9,6 +9,7 @@ import { primaryColor } from './utils/helpers';
 import Header from './components/Header';
 import DeckCreation from './components/DeckCreation';
 import QuizScreen from './components/QuizScreen';
+import CreateQuizQuestionScreen from './components/CreateQuizQuestionScreen';
 
 export default class App extends React.Component {
 
@@ -25,7 +26,10 @@ export default class App extends React.Component {
             // <DeckCreation/>
           }
           {
-            <QuizScreen/>
+            // <QuizScreen/>
+          }
+          {
+            <CreateQuizQuestionScreen/>
           }
         </View>
       </Provider>
