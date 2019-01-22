@@ -8,6 +8,7 @@ import SystemTopBar from './components/SystemTopBar';
 import { primaryColor } from './utils/helpers';
 import Header from './components/Header';
 import DeckCreation from './components/DeckCreation';
+import QuizScreen from './components/QuizScreen';
 
 export default class App extends React.Component {
 
@@ -18,14 +19,13 @@ export default class App extends React.Component {
         <Header/>
         <View style={styles.container}>
           {
-            /**
-             * <DeckList />
-             */
+            // <DeckList />
           }
           {
-            /**
-             * <DeckCreation/>
-             */
+            // <DeckCreation/>
+          }
+          {
+            <QuizScreen/>
           }
         </View>
       </Provider>
