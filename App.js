@@ -10,6 +10,7 @@ import Header from './components/Header';
 import DeckCreation from './components/DeckCreation';
 import QuizScreen from './components/QuizScreen';
 import CreateQuizQuestionScreen from './components/CreateQuizQuestionScreen';
+import QuizQuestionScreen from './components/QuizQuestionScreen';
 
 export default class App extends React.Component {
 
@@ -29,7 +30,10 @@ export default class App extends React.Component {
             // <QuizScreen/>
           }
           {
-            <CreateQuizQuestionScreen/>
+            // <CreateQuizQuestionScreen/>
+          }
+          {
+            <QuizQuestionScreen/>
           }
         </View>
       </Provider>
