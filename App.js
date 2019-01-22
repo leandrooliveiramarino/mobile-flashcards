@@ -6,6 +6,8 @@ import { StyleSheet, Text, View, Image, FlatList } from 'react-native';
 import DeckList from './components/DeckList';
 import SystemTopBar from './components/SystemTopBar';
 import { primaryColor } from './utils/helpers';
+import Header from './components/Header';
+import DeckCreation from './components/DeckCreation';
 
 export default class App extends React.Component {
 
@@ -13,8 +15,18 @@ export default class App extends React.Component {
     return (
       <Provider store={createStore(reducer)}>
         <SystemTopBar backgroundColor={primaryColor}/>
+        <Header/>
         <View style={styles.container}>
-          <DeckList />
+          {
+            /**
+             * <DeckList />
+             */
+          }
+          {
+            /**
+             * <DeckCreation/>
+             */
+          }
         </View>
       </Provider>
     );

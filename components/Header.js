@@ -6,8 +6,13 @@ import { primaryColor, defaultTextColor } from '../utils/helpers';
 export default function Header() {
   return (
     <View style={styles.header}>
-      <Text style={styles.menuItem}>Decks</Text>
+      {
+        /**
+         * <Text style={styles.menuItem}>Decks</Text>
       <Icon iconStyle={styles.menuItem} name='plus-square' type='font-awesome' color='#fff' />
+         */
+      }
+      <Icon iconStyle={styles.menuItem} name='chevron-left' type='font-awesome' color='#fff' />
     </View>
   );
 }
