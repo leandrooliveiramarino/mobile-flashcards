@@ -6,11 +6,13 @@ export default function DeckList() {
   return (
     <Fragment>
       <FlatList
-        data={[{key: 'a'}, {key: 'b'}]}
+        style={{padding: 25}}
+        columnWrapperStyle={{justifyContent: 'space-between'}}
+        data={[{key: 'a'}, {key: 'b'}, {key: 'c'}]}
         horizontal={false}
         numColumns={2}
         renderItem={({item}) => (
-          <Deck/>
+          <Deck />
         )}
         ListEmptyComponent={ <Text>No decks found 😓</Text> }
       />

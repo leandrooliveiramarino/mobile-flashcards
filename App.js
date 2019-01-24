@@ -2,10 +2,11 @@ import React from 'react';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux';
 import reducer from './reducers'
-import { StyleSheet, Text, View, Image, FlatList } from 'react-native';
+import { StyleSheet, Text, View, Image, FlatList, Platform } from 'react-native';
+import { TabNavigator, StackNavigator } from 'react-navigation';
 import DeckList from './components/DeckList';
 import SystemTopBar from './components/SystemTopBar';
-import { primaryColor } from './utils/helpers';
+import { primaryColor, defaultTextColor, darkColor } from './utils/helpers';
 import Header from './components/Header';
 import DeckCreation from './components/DeckCreation';
 import QuizScreen from './components/QuizScreen';
@@ -13,6 +14,40 @@ import CreateQuizQuestionScreen from './components/CreateQuizQuestionScreen';
 import QuizQuestionScreen from './components/QuizQuestionScreen';
 import QuizAnswerScreen from './components/QuizAnswerScreen';
 import QuizResultScreen from './components/QuizResultScreen';
+import { FontAwesome, Ionicons } from '@expo/vector-icons'
+
+const Tabs = TabNavigator({
+  DeckList: {
+    screen: DeckList,
+    navigationOptions: {
+      tabBarLabel: 'Deck List'
+    },
+  },
+  DeckCreation: {
+    screen: DeckCreation,
+    navigationOptions: {
+      tabBarLabel: 'Create Deck'
+    },
+  }
+}, {
+  navigationOptions: {
+    header: null
+  },
+  tabBarOptions: {
+    activeTintColor: defaultTextColor,
+    style: {
+      height: 54,
+      backgroundColor: primaryColor,
+      shadowColor: 'rgba(0, 0, 0, 0.24)',
+      shadowOffset: {
+        width: 0,
+        height: 3
+      },
+      shadowRadius: 6,
+      shadowOpacity: 1
+    }
+  }
+});
 
 export default class App extends React.Component {
 
@@ -20,10 +55,12 @@ export default class App extends React.Component {
     return (
       <Provider store={createStore(reducer)}>
         <SystemTopBar backgroundColor={primaryColor}/>
-        <Header/>
+        {
+          // <Header/>
+        }
         <View style={styles.container}>
           {
-            // <DeckList />
+            <Tabs />
           }
           {
             // <DeckCreation/>
@@ -41,7 +78,7 @@ export default class App extends React.Component {
             // <QuizAnswerScreen/>
           }
           {
-            <QuizResultScreen/>
+            // <QuizResultScreen/>
           }
         </View>
       </Provider>
@@ -53,8 +90,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    flexWrap: 'wrap',
     justifyContent: 'center'
   }
 });

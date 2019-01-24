@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
-import { defaultBorderColor } from '../utils/helpers';
+import { defaultBorderColor, darkColor } from '../utils/helpers';
 
 export default class DeckCreation extends Component {
 
@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
   },
   btnSubmit: {
     marginBottom: 20,
-    borderRadius: 5
+    borderRadius: 5,
+    backgroundColor: darkColor
   }
 });

@@ -20,10 +20,8 @@ const styles = StyleSheet.create({
     height: 230,
     borderColor: darkColor,
     borderRadius: 5,
+    margin: 0,
     marginTop: 30,
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    flexDirection: 'column',
   },
   cardTitle: {
     color: darkColor

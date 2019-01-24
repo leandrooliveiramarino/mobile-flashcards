@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     backgroundColor: primaryColor,
     width: '100%',
-    height: 60,
+    height: 54,
     alignItems: 'center',
     flexWrap: 'wrap',
   }
