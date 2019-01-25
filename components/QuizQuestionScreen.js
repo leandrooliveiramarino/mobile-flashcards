@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
 import { defaultBorderColor, darkColor } from '../utils/helpers';
+import SystemTopBar from './SystemTopBar';
+import Header from './Header';
 
 export default class QuizQuestionScreen extends Component {
 
@@ -10,6 +12,7 @@ export default class QuizQuestionScreen extends Component {
   render() {
     return (
       <Fragment>
+        <Header navigation={this.props.navigation}/>
         <View style={styles.view}>
           <Text style={styles.questionsLeft}>Questions left: 14</Text>
           <View style={styles.card}>

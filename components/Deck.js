@@ -1,16 +1,20 @@
 import React from 'react';
 import { Card, ListItem, Button } from 'react-native-elements';
-import { StyleSheet, Text, View } from 'react-native';
-import { darkColor } from '../utils/helpers';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { darkColor, activeOpacity } from '../utils/helpers';
 
-export default function Deck() {
+export default function Deck({navigation}) {
   return (
-    <Card title='React Native' containerStyle={styles.card} titleStyle={styles.cardTitle}>
-      <View style={styles.deckBody}>
-        <Text style={{fontSize: 80, color: darkColor}}>R</Text>
-        <Text style={styles.amountCards}>15 cards</Text>
-      </View>
-    </Card>
+    <TouchableOpacity activeOpacity={activeOpacity} onPress={() => {
+      navigation.navigate('QuizQuestionScreen')
+    }}>
+      <Card title='React Native' containerStyle={styles.card} titleStyle={styles.cardTitle}>
+        <View style={styles.deckBody}>
+          <Text style={{fontSize: 80, color: darkColor}}>R</Text>
+          <Text style={styles.amountCards}>15 cards</Text>
+        </View>
+      </Card>
+    </TouchableOpacity>
   );
 }
 

@@ -3,3 +3,8 @@ export const lightColor = '#8558da';
 export const darkColor = '#140078';
 export const defaultTextColor = '#fff';
 export const defaultBorderColor = '#cecece';
+
+/**
+ * TouchableOpacity
+ */
+export const activeOpacity = 0.6;

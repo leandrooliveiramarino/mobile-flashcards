@@ -1,18 +1,20 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
-import { primaryColor, defaultTextColor } from '../utils/helpers';
+import { primaryColor, defaultTextColor, activeOpacity } from '../utils/helpers';
 
-export default function Header() {
+export default function Header({navigation}) {
   return (
     <View style={styles.header}>
+      <TouchableOpacity activeOpacity={activeOpacity} onPress={() => navigation.navigate('Home')}>
+        <Icon iconStyle={styles.menuItem} name='chevron-left' type='font-awesome' color='#fff' />
+      </TouchableOpacity>
       {
         /**
          * <Text style={styles.menuItem}>Decks</Text>
       <Icon iconStyle={styles.menuItem} name='plus-square' type='font-awesome' color='#fff' />
          */
       }
-      <Icon iconStyle={styles.menuItem} name='chevron-left' type='font-awesome' color='#fff' />
     </View>
   );
 }

@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { View, Text, FlatList } from 'react-native';
 import Deck from './Deck';
 
-export default function DeckList() {
+export default function DeckList({navigation}) {
   return (
     <Fragment>
       <FlatList
@@ -12,7 +12,7 @@ export default function DeckList() {
         horizontal={false}
         numColumns={2}
         renderItem={({item}) => (
-          <Deck />
+          <Deck navigation={navigation}/>
         )}
         ListEmptyComponent={ <Text>No decks found 😓</Text> }
       />

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux';
 import reducer from './reducers'
@@ -7,7 +7,6 @@ import { TabNavigator, StackNavigator } from 'react-navigation';
 import DeckList from './components/DeckList';
 import SystemTopBar from './components/SystemTopBar';
 import { primaryColor, defaultTextColor, darkColor } from './utils/helpers';
-import Header from './components/Header';
 import DeckCreation from './components/DeckCreation';
 import QuizScreen from './components/QuizScreen';
 import CreateQuizQuestionScreen from './components/CreateQuizQuestionScreen';
@@ -49,18 +48,33 @@ const Tabs = TabNavigator({
   }
 });
 
+
+const Stack = StackNavigator({
+  Home: {
+    screen: Tabs,
+  },
+  QuizQuestionScreen: {
+    screen: QuizQuestionScreen,
+    navigationOptions: {
+      headerTintColor: defaultTextColor,
+      headerStyle: {
+        backgroundColor: primaryColor,
+      }
+    }
+  }
+}, {
+  headerMode: 'none'
+})
+
 export default class App extends React.Component {
 
   render() {
     return (
       <Provider store={createStore(reducer)}>
-        <SystemTopBar backgroundColor={primaryColor}/>
-        {
-          // <Header/>
-        }
+        <SystemTopBar/>
         <View style={styles.container}>
           {
-            <Tabs />
+            <Stack />
           }
           {
             // <DeckCreation/>
