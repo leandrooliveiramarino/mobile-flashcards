@@ -53,6 +53,24 @@ const Stack = StackNavigator({
   Home: {
     screen: Tabs,
   },
+  QuizScreen: {
+    screen: QuizScreen,
+    navigationOptions: {
+      headerTintColor: defaultTextColor,
+      headerStyle: {
+        backgroundColor: primaryColor,
+      }
+    }
+  },
+  CreateQuizQuestionScreen: {
+    screen: CreateQuizQuestionScreen,
+    navigationOptions: {
+      headerTintColor: defaultTextColor,
+      headerStyle: {
+        backgroundColor: primaryColor,
+      }
+    }
+  },
   QuizQuestionScreen: {
     screen: QuizQuestionScreen,
     navigationOptions: {
@@ -75,18 +93,6 @@ export default class App extends React.Component {
         <View style={styles.container}>
           {
             <Stack />
-          }
-          {
-            // <DeckCreation/>
-          }
-          {
-            // <QuizScreen/>
-          }
-          {
-            // <CreateQuizQuestionScreen/>
-          }
-          {
-            // <QuizQuestionScreen/>
           }
           {
             // <QuizAnswerScreen/>

@@ -6,7 +6,7 @@ import { primaryColor, defaultTextColor, activeOpacity } from '../utils/helpers'
 export default function Header({navigation}) {
   return (
     <View style={styles.header}>
-      <TouchableOpacity activeOpacity={activeOpacity} onPress={() => navigation.navigate('Home')}>
+      <TouchableOpacity activeOpacity={activeOpacity} onPress={() => navigation.goBack()}>
         <Icon iconStyle={styles.menuItem} name='chevron-left' type='font-awesome' color='#fff' />
       </TouchableOpacity>
       {

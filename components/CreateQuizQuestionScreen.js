@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
-import { defaultBorderColor } from '../utils/helpers';
+import { defaultBorderColor, darkColor } from '../utils/helpers';
+import Header from './Header';
 
 export default class CreateQuizQuestionScreen extends Component {
 
@@ -10,6 +11,7 @@ export default class CreateQuizQuestionScreen extends Component {
   render() {
     return (
       <Fragment>
+        <Header navigation={this.props.navigation}/>
         <View style={styles.view}>
           <View style={styles.form}>
             <FormLabel>Question</FormLabel>
@@ -55,6 +57,7 @@ const styles = StyleSheet.create({
   },
   btnSubmit: {
     marginBottom: 20,
-    borderRadius: 5
+    borderRadius: 5,
+    backgroundColor: darkColor
   }
 });

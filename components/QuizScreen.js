@@ -2,14 +2,16 @@ import React, { Component, Fragment } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 import { defaultBorderColor, darkColor } from '../utils/helpers';
+import Header from './Header';
 
 export default class QuizScreen extends Component {
 
-  someFunction = () => {}
+  goTo = screen => this.props.navigation.navigate(screen);
 
   render() {
     return (
       <Fragment>
+        <Header navigation={this.props.navigation}/>
         <View style={styles.view}>
           <Text style={styles.title}>React Native</Text>
           <View>
@@ -18,12 +20,14 @@ export default class QuizScreen extends Component {
               icon={{name: 'plus', type: 'font-awesome'}}
               title='Add New Question'
               buttonStyle={styles.btnSubmit}
+              onPress={() => this.goTo('CreateQuizQuestionScreen')}
             />
             <Button
               large
               icon={{name: 'play', type: 'font-awesome'}}
               title='Start a Quiz'
               buttonStyle={styles.btnSubmit}
+              onPress={() => this.goTo('QuizQuestionScreen')}
             />
           </View>
         </View>
