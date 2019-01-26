@@ -13,7 +13,8 @@ import CreateQuizQuestionScreen from './components/CreateQuizQuestionScreen';
 import QuizQuestionScreen from './components/QuizQuestionScreen';
 import QuizAnswerScreen from './components/QuizAnswerScreen';
 import QuizResultScreen from './components/QuizResultScreen';
-import { FontAwesome, Ionicons } from '@expo/vector-icons'
+import { FontAwesome, Ionicons } from '@expo/vector-icons';
+import middleware from './middleware';
 
 const Tabs = TabNavigator({
   DeckList: {
@@ -88,7 +89,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <Provider store={createStore(reducer)}>
+      <Provider store={createStore(reducer, middleware)}>
         <SystemTopBar/>
         <View style={styles.container}>
           {
