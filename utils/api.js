@@ -1,12 +1,12 @@
 const decks = {
   deck1: {
     id: 'deck1',
-    name: 'React Native',
+    title: 'React Native',
     questionAmount: 15
   },
   deck2: {
     id: 'deck2',
-    name: 'PHP',
+    title: 'PHP',
     questionAmount: 10
   }
 };

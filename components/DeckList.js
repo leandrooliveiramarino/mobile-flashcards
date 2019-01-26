@@ -10,8 +10,15 @@ class DeckList extends Component {
     this.props.handleInitialData();
   }
 
+  amountCards(deckId) {
+    return Object
+      .keys(this.props.cards)
+      .filter(cardId => this.props.cards[cardId].deckId === deckId)
+      .length;
+  }
+
   render() {
-    const { navigation, decks } = this.props;
+    const { navigation, decks, cards } = this.props;
 
     return (
       <Fragment>
@@ -22,9 +29,11 @@ class DeckList extends Component {
           keyExtractor={item => item.id}
           horizontal={false}
           numColumns={2}
-          renderItem={({deckId}) => (
-            <Deck key={deckId} {...navigation} deck={decks[deckId]} />
-          )}
+          renderItem={({item}) => {
+           return (
+            <Deck deck={decks[item]} amountCards={this.amountCards(item)}/>
+          )
+          }}
           ListEmptyComponent={ <Text>No decks found 😓</Text> }
         />
       </Fragment>
@@ -32,9 +41,10 @@ class DeckList extends Component {
   }
 }
 
-function mapStateToProps({decks}) {
+function mapStateToProps({decks, cards}) {
   return {
-    decks
+    decks,
+    cards
   }
 }
 
