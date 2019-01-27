@@ -1,5 +1,5 @@
 import { generateUID } from '../utils/helpers';
-import { saveAnswersHistory, fetchAnswersHistory, removeAnswersHistory } from '../utils/api';
+import { fetchAnswersHistory, saveAnswersHistory } from '../utils/api/answersHistory';
 
 export const ADD_ANSWER_HISTORY = 'ADD_ANSWER_HISTORY';
 export const GET_HISTORIES = 'GET_HISTORIES';
@@ -34,7 +34,6 @@ export function handleGetHistory() {
       });
   }
 }
-
 export function handleAddHistory(deckId, answers) {
   const history = {
     id: generateUID(),
