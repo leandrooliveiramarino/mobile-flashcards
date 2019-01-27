@@ -97,9 +97,7 @@ export default class App extends React.Component {
       <Provider store={createStore(reducer, middleware)}>
         <SystemTopBar/>
         <View style={styles.container}>
-          {
-            <Stack />
-          }
+          <Stack />
         </View>
       </Provider>
     );

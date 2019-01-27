@@ -13,6 +13,8 @@ export const defaultBorderColor = '#cecece';
  * Async Storage
  */
 export const ANSWERS_HISTORY_STORAGE_KEY = 'MobileFlashcards:answersHistory';
+export const DECKS_STORAGE_KEY = 'MobileFlashcards:decks';
+export const CARDS_STORAGE_KEY = 'MobileFlashcards:cards';
 
 /**
  * TouchableOpacity
