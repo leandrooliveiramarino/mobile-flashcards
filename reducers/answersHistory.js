@@ -1,6 +1,6 @@
 import { ADD_ANSWER_HISTORY, GET_HISTORIES } from '../actions/answersHistory';
 
-export default answersHistory(state = {}, action) {
+export default function answersHistory(state = {}, action) {
   switch(action.type) {
     case GET_HISTORIES:
       return {
@@ -10,7 +10,9 @@ export default answersHistory(state = {}, action) {
     case ADD_ANSWER_HISTORY:
       return {
         ...state,
-        [action.history.id]: action.history
+        [action.history.id]: {
+          ...action.history
+        }
       };
     default:
       return state;

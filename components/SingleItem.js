@@ -11,7 +11,7 @@ class SingleItem extends Component {
             <Text style={styles.titleLabel}>{this.props.title}</Text>
           </View>
           <View style={styles.subtitleView}>
-            <Text style={styles.ratingText}>{this.props.dateAnswered}</Text>
+            <Text style={styles.ratingText}>{this.props.answerDate}</Text>
           </View>
         </View>
         <View>

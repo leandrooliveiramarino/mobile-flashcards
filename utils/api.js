@@ -52,30 +52,34 @@ export const fetchAllCards = () => {
 export const getInitialData = () => {
   return Promise.all([
     fetchAllDecks(),
-    fetchAllCards()
+    fetchAllCards(),
+    fetchAllAnswersHistory()
   ]).then(([
     decks,
-    cards
+    cards,
+    answersHistory
   ]) => ({
     decks,
-    cards
+    cards,
+    answersHistory
   }))
 }
 
 /**
  * Async Storage functions
  */
-export function fetchAnswersHistory() {
+export function fetchAllAnswersHistory() {
   return AsyncStorage.getItem(ANSWERS_HISTORY_STORAGE_KEY)
     .then(data => {
-      return data;
+      return JSON.parse(data);
     })
 }
 
-export function saveAnswersHistory({ cardHistory, key }) {
-  return AsyncStorage.mergeItem(ANSWERS_HISTORY_STORAGE_KEY, JSON.stringify({
-    [key]: cardHistory
-  }))
+export function saveAnswersHistory(cardHistory) {
+  AsyncStorage.mergeItem(ANSWERS_HISTORY_STORAGE_KEY, JSON.stringify({
+    [cardHistory.id]: cardHistory
+  }));
+  return Promise.resolve(cardHistory);
 }
 
 export function removeAnswersHistory(key) {

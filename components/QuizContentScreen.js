@@ -8,6 +8,7 @@ import QuizQuestion from './QuizQuestion';
 import QuizAnswer from './QuizAnswer';
 import QuizResult from './QuizResult';
 import { connect } from 'react-redux';
+import { handleAddHistory } from '../actions/answersHistory';
 
 class QuizContentScreen extends Component {
 
@@ -99,11 +100,9 @@ class QuizContentScreen extends Component {
   }
 
   saveHistory = () => {
-    /**
-     * TODO: Salvar histórico de respostas do usuário
-     */
-    // this.props.dispatch(saveHistory(this.state.answerHistory))
-    console.log(this.state.answerHistory);
+    const { deckId } = this.props.navigation.state.params;
+
+    this.props.dispatch(handleAddHistory(deckId, this.state.answerHistory))
   }
 
   render() {
