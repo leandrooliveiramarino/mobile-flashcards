@@ -9,6 +9,7 @@ import SystemTopBar from './components/SystemTopBar';
 import { primaryColor, defaultTextColor, darkColor } from './utils/helpers';
 import DeckCreation from './components/DeckCreation';
 import QuizScreen from './components/QuizScreen';
+import AnswersHistory from './components/AnswersHistory';
 import CreateQuizQuestionScreen from './components/CreateQuizQuestionScreen';
 import QuizContentScreen from './components/QuizContentScreen';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
@@ -25,6 +26,12 @@ const Tabs = TabNavigator({
     screen: DeckCreation,
     navigationOptions: {
       tabBarLabel: 'Create Deck'
+    },
+  },
+  AnswersHistory: {
+    screen: AnswersHistory,
+    navigationOptions: {
+      tabBarLabel: 'History'
     },
   }
 }, {
