@@ -1,23 +1,25 @@
 import React, { Component } from 'react';
-import { defaultTextColor, defaultBorderColor, primaryColor } from '../utils/helpers';
-import { Text, View, StyleSheet } from 'react-native';
+import { defaultTextColor, defaultBorderColor, primaryColor, activeOpacity } from '../utils/helpers';
+import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 
 class SingleItem extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <View>
-          <View style={styles.title}>
-            <Text style={styles.titleLabel}>{this.props.title}</Text>
+      <TouchableOpacity activeOpacity={activeOpacity} onLongPress={this.props.onLongPress}>
+        <View style={styles.container}>
+          <View>
+            <View style={styles.title}>
+              <Text style={styles.titleLabel}>{this.props.title}</Text>
+            </View>
+            <View style={styles.subtitleView}>
+              <Text style={styles.ratingText}>{this.props.answerDate}</Text>
+            </View>
           </View>
-          <View style={styles.subtitleView}>
-            <Text style={styles.ratingText}>{this.props.answerDate}</Text>
+          <View>
+            <Text style={styles.score}>{this.props.score}</Text>
           </View>
         </View>
-        <View>
-          <Text style={styles.score}>{this.props.score}</Text>
-        </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 }

@@ -86,8 +86,8 @@ export function removeAnswersHistory(key) {
   return AsyncStorage.getItem(ANSWERS_HISTORY_STORAGE_KEY)
     .then(results => {
       const data = JSON.parse(results)
-      data[key] = undefined
-      delete data[key]
-      AsyncStorage.setItem(ANSWERS_HISTORY_STORAGE_KEY, JSON.stringify(data))
+      data[key].deletedAt = new Date().getTime();
+      AsyncStorage.setItem(ANSWERS_HISTORY_STORAGE_KEY, JSON.stringify(data));
+      return data[key];
     })
 }

@@ -3,17 +3,26 @@ import { StyleSheet, FlatList, View, Text } from 'react-native';
 import { List, ListItem } from 'react-native-elements';
 import SingleItem from './SingleItem';
 import { connect } from 'react-redux';
-import { formatDate } from '../utils/helpers';
+import { formatDate, alert } from '../utils/helpers';
+import { handleRemoveHistory } from '../actions/answersHistory';
 
 class AnswersHistory extends Component {
-  renderRow ({ item }) {
+  renderRow({ item }, dispatch) {
     return (
       <ListItem
-        component={() => (
+        onLongPress={() => {alert({
+          title: 'Remove History',
+          subtitle: 'Do you really want to remove this item?',
+          onPositiveAnswer: () => {
+            dispatch(handleRemoveHistory(item.id));
+          }
+        })}}
+        component={(props) => (
           <SingleItem
             title={item.title}
             answerDate={item.answerDate}
             score={item.score}
+            {...props}
           />
         )}
       />
@@ -25,7 +34,7 @@ class AnswersHistory extends Component {
       <List containerStyle={styles.list}>
         <FlatList
           data={this.props.answersHistory}
-          renderItem={this.renderRow}
+          renderItem={(props) => this.renderRow({...props}, this.props.dispatch)}
           keyExtractor={item => item.id}
         />
       </List>
@@ -55,12 +64,15 @@ function mapStateToProps({decks, answersHistory}, ) {
       id: answersHistoryId,
       title: decks[answersHistory[answersHistoryId].deckId].title,
       answerDate: formatDate(answersHistory[answersHistoryId].answerDate),
-      score: score(answersHistory[answersHistoryId].answers)
+      score: score(answersHistory[answersHistoryId].answers),
+      deletedAt: answersHistory[answersHistoryId].deletedAt
     }));
+
+  const availableHistories = list.filter(history => !history.deletedAt);
 
   return {
     decks,
-    answersHistory: list
+    answersHistory: availableHistories
   };
 }
 
