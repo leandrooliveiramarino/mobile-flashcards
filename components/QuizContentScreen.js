@@ -91,6 +91,13 @@ class QuizContentScreen extends Component {
     }));
   }
 
+  getScore = () => {
+    const amountQuestions = this.state.answerHistory.length;
+    const correctAnswers = this.state.answerHistory.filter(history => history.answer).length;
+
+    return `${correctAnswers}/${amountQuestions}`;
+  }
+
   saveHistory = () => {
     /**
      * TODO: Salvar histórico de respostas do usuário
@@ -128,6 +135,7 @@ class QuizContentScreen extends Component {
                 navigation={this.props.navigation}
                 saveHistory={this.saveHistory}
                 restartQuiz={this.restartQuiz}
+                score={this.getScore()}
               />
         }
         </View>

@@ -100,12 +100,6 @@ export default class App extends React.Component {
           {
             <Stack />
           }
-          {
-            // <QuizAnswerScreen/>
-          }
-          {
-            // <QuizResultScreen/>
-          }
         </View>
       </Provider>
     );

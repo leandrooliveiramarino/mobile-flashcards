@@ -10,7 +10,7 @@ export default class QuizResult extends Component {
       <Fragment>
         <View style={styles.card}>
           <Text style={styles.textContent}>You've got</Text>
-          <Text style={styles.textContent}>13/15</Text>
+          <Text style={styles.textContent}>{this.props.score}</Text>
         </View>
         <Button
           large
