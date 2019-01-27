@@ -95,6 +95,7 @@ class QuizContentScreen extends Component {
     /**
      * TODO: Salvar histórico de respostas do usuário
      */
+    // this.props.dispatch(saveHistory(this.state.answerHistory))
     console.log(this.state.answerHistory);
   }
 

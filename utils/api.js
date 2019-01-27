@@ -1,3 +1,6 @@
+import { AsyncStorage } from 'react-native';
+import { ANSWERS_HISTORY_STORAGE_KEY } from './helpers';
+
 const decks = {
   deck1: {
     id: 'deck1',
@@ -57,4 +60,30 @@ export const getInitialData = () => {
     decks,
     cards
   }))
+}
+
+/**
+ * Async Storage functions
+ */
+export function fetchAnswersHistory() {
+  return AsyncStorage.getItem(ANSWERS_HISTORY_STORAGE_KEY)
+    .then(data => {
+      return data;
+    })
+}
+
+export function saveAnswersHistory({ cardHistory, key }) {
+  return AsyncStorage.mergeItem(ANSWERS_HISTORY_STORAGE_KEY, JSON.stringify({
+    [key]: cardHistory
+  }))
+}
+
+export function removeAnswersHistory(key) {
+  return AsyncStorage.getItem(ANSWERS_HISTORY_STORAGE_KEY)
+    .then(results => {
+      const data = JSON.parse(results)
+      data[key] = undefined
+      delete data[key]
+      AsyncStorage.setItem(ANSWERS_HISTORY_STORAGE_KEY, JSON.stringify(data))
+    })
 }
