@@ -10,9 +10,7 @@ import { primaryColor, defaultTextColor, darkColor } from './utils/helpers';
 import DeckCreation from './components/DeckCreation';
 import QuizScreen from './components/QuizScreen';
 import CreateQuizQuestionScreen from './components/CreateQuizQuestionScreen';
-import QuizQuestionScreen from './components/QuizQuestionScreen';
-import QuizAnswerScreen from './components/QuizAnswerScreen';
-import QuizResultScreen from './components/QuizResultScreen';
+import QuizContentScreen from './components/QuizContentScreen';
 import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import middleware from './middleware';
 
@@ -72,8 +70,8 @@ const Stack = StackNavigator({
       }
     }
   },
-  QuizQuestionScreen: {
-    screen: QuizQuestionScreen,
+  QuizContentScreen: {
+    screen: QuizContentScreen,
     navigationOptions: {
       headerTintColor: defaultTextColor,
       headerStyle: {

@@ -2,45 +2,28 @@ import React, { Component, Fragment } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
 import { defaultBorderColor, darkColor } from '../utils/helpers';
-import SystemTopBar from './SystemTopBar';
-import Header from './Header';
 
-export default class QuizQuestionScreen extends Component {
-
-  someFunction = () => {}
+export default class QuizQuestion extends Component {
 
   render() {
     return (
       <Fragment>
-        <Header navigation={this.props.navigation}/>
-        <View style={styles.view}>
-          <Text style={styles.questionsLeft}>Questions left: 14</Text>
           <View style={styles.card}>
-            <Text style={styles.textContent}>On React, you should always give preference to mutate data directly to avoid errors and bugs.</Text>
+            <Text style={styles.textContent}>{this.props.card.question}</Text>
           </View>
           <Button
             large
             icon={{name: 'eye', type: 'font-awesome'}}
             title='Show Answer'
             buttonStyle={styles.btnShowAnswer}
+            onPress={this.props.showAnswer}
           />
-        </View>
       </Fragment>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  view: {
-    flex: 1,
-    justifyContent: 'space-between',
-    width: '100%'
-  },
-  questionsLeft: {
-    textAlign: 'right',
-    marginRight: 20,
-    marginTop: 20
-  },
   btnShowAnswer: {
     marginBottom: 20,
     backgroundColor: darkColor,

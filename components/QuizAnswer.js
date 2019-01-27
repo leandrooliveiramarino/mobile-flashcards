@@ -3,32 +3,29 @@ import { View, Text, StyleSheet } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
 import { defaultBorderColor, darkColor } from '../utils/helpers';
 
-export default class QuizAnswerScreen extends Component {
-
-  someFunction = () => {}
-
+export default class QuizAnswer extends Component {
   render() {
+    const { answer, id } = this.props.card;
     return (
       <Fragment>
-        <View style={styles.view}>
-          <Text style={styles.questionsLeft}>Questions left: 14</Text>
-          <View style={styles.card}>
-            <Text style={styles.textContent}>On React, you should always give preference to mutate data directly to avoid errors and bugs.</Text>
-          </View>
-          <View style={styles.buttonsContainer}>
-            <Button
-              large
-              rightIcon={{name: 'thumbsdown', type: 'octicon'}}
-              title='Missed it!'
-              buttonStyle={styles.btn}
-            />
-            <Button
-              large
-              rightIcon={{name: 'thumbsup', type: 'octicon'}}
-              title='Nailed it!'
-              buttonStyle={styles.btn}
-            />
-          </View>
+        <View style={styles.card}>
+          <Text style={styles.textContent}>{answer}</Text>
+        </View>
+        <View style={styles.buttonsContainer}>
+          <Button
+            large
+            rightIcon={{name: 'thumbsdown', type: 'octicon'}}
+            title='Missed it!'
+            buttonStyle={styles.btn}
+            onPress={() => this.props.markAsAnswered(id, false)}
+          />
+          <Button
+            large
+            rightIcon={{name: 'thumbsup', type: 'octicon'}}
+            title='Nailed it!'
+            buttonStyle={styles.btn}
+            onPress={() => this.props.markAsAnswered(id, true)}
+          />
         </View>
       </Fragment>
     );

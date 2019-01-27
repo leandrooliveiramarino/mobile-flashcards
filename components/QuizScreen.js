@@ -29,7 +29,7 @@ export default class QuizScreen extends Component {
               icon={{name: 'play', type: 'font-awesome'}}
               title='Start a Quiz'
               buttonStyle={styles.btnSubmit}
-              onPress={() => this.goTo('QuizQuestionScreen', { deckId: deck.id })}
+              onPress={() => this.goTo('QuizContentScreen', { deckId: deck.id })}
             />
           </View>
         </View>
