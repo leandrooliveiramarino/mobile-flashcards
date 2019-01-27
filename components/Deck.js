@@ -6,7 +6,7 @@ import { darkColor, activeOpacity } from '../utils/helpers';
 export default function Deck({navigation, deck, amountCards}) {
   return (
     <TouchableOpacity activeOpacity={activeOpacity} onPress={() => {
-      navigation.navigate('QuizScreen')
+      navigation.navigate('QuizScreen', {deck, amountCards})
     }}>
       <Card title={deck.title} containerStyle={styles.card} titleStyle={styles.cardTitle}>
         <View style={styles.deckBody}>

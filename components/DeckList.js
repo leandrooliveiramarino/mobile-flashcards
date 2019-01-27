@@ -31,7 +31,11 @@ class DeckList extends Component {
           numColumns={2}
           renderItem={({item}) => {
            return (
-            <Deck deck={decks[item]} amountCards={this.amountCards(item)}/>
+            <Deck
+              deck={decks[item]}
+              amountCards={this.amountCards(item)}
+              navigation={navigation}
+            />
           )
           }}
           ListEmptyComponent={ <Text>No decks found 😓</Text> }

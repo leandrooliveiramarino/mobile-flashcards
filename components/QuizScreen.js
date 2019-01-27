@@ -6,32 +6,34 @@ import Header from './Header';
 
 export default class QuizScreen extends Component {
 
-  goTo = screen => this.props.navigation.navigate(screen);
+  goTo = (screen, options) => this.props.navigation.navigate(screen, options);
 
   render() {
+    const { deck, amountCards } = this.props.navigation.state.params;
+
     return (
       <Fragment>
         <Header navigation={this.props.navigation}/>
         <View style={styles.view}>
-          <Text style={styles.title}>React Native</Text>
+          <Text style={styles.title}>{deck.title}</Text>
           <View>
             <Button
               large
               icon={{name: 'plus', type: 'font-awesome'}}
               title='Add New Question'
               buttonStyle={styles.btnSubmit}
-              onPress={() => this.goTo('CreateQuizQuestionScreen')}
+              onPress={() => this.goTo('CreateQuizQuestionScreen', { deckId: deck.id })}
             />
             <Button
               large
               icon={{name: 'play', type: 'font-awesome'}}
               title='Start a Quiz'
               buttonStyle={styles.btnSubmit}
-              onPress={() => this.goTo('QuizQuestionScreen')}
+              onPress={() => this.goTo('QuizQuestionScreen', { deckId: deck.id })}
             />
           </View>
         </View>
-        <Text style={styles.amountCardsLeft}>15 cards</Text>
+        <Text style={styles.amountCardsLeft}>{amountCards} cards</Text>
       </Fragment>
     );
   }
