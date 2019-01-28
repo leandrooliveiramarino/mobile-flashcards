@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { primaryColor } from '../utils/helpers';
+import { primaryColor, backgroundColor } from '../utils/helpers';
 
 export default function NotFound({message}) {
   return (
@@ -13,11 +13,12 @@ export default function NotFound({message}) {
 const styles = StyleSheet.create({
   message: {
     fontSize: 25,
-    color: primaryColor
+    color: primaryColor,
   },
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    height: 200
+    height: 200,
+    backgroundColor: backgroundColor
   }
 })

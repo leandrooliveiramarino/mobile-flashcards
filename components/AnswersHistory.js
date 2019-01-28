@@ -5,6 +5,7 @@ import SingleItem from './SingleItem';
 import { connect } from 'react-redux';
 import { formatDate, alert } from '../utils/helpers';
 import { handleRemoveHistory } from '../actions/answersHistory';
+import NotFound from './NotFound';
 
 class AnswersHistory extends Component {
   renderRow({ item }, dispatch) {
@@ -36,6 +37,7 @@ class AnswersHistory extends Component {
           data={this.props.answersHistory}
           renderItem={(props) => this.renderRow({...props}, this.props.dispatch)}
           keyExtractor={item => item.id}
+          ListEmptyComponent={<NotFound message={'No history found 🤔'}/>}
         />
       </List>
     )

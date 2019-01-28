@@ -8,6 +8,7 @@ export const lightColor = '#4f83cc';
 export const darkColor = '#002f6c';
 export const defaultTextColor = '#fff';
 export const defaultBorderColor = '#cecece';
+export const backgroundColor = '#eee';
 
 /**
  * Async Storage
