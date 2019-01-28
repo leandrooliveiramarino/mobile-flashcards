@@ -3,9 +3,9 @@ import { Alert } from 'react-native';
 /**
  * variables declarations
  */
-export const primaryColor = '#512ca8';
-export const lightColor = '#8558da';
-export const darkColor = '#140078';
+export const primaryColor = '#01579b';
+export const lightColor = '#4f83cc';
+export const darkColor = '#002f6c';
 export const defaultTextColor = '#fff';
 export const defaultBorderColor = '#cecece';
 
