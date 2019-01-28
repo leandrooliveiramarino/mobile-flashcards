@@ -57,3 +57,19 @@ export const alert = ({title, subtitle, negativeLabel, onNegativeAnswer, onPosit
     },
   );
 }
+
+export const filterActiveItems = items => {
+  const availableIds = Object.keys(items).filter(itemId => !items[itemId].deletedAt);
+  let filteredItems = {};
+
+  /**
+   * Transformando array em objeto formatado
+   */
+  availableIds.forEach(id => {
+    filteredItems[id] = {
+      ...items[id]
+    }
+  });
+
+  return filteredItems;
+}

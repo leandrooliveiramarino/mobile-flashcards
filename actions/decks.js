@@ -1,4 +1,4 @@
-import { fetchDeck, saveDeck } from '../utils/api/decks';
+import { fetchDeck, saveDeck, removeDeck } from '../utils/api/decks';
 import { generateUID } from '../utils/helpers';
 
 export const GET_ALL_DECKS = 'GET_ALL_DECKS';

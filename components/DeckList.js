@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { View, Text, FlatList } from 'react-native';
 import Deck from './Deck';
 import { handleInitialData } from '../actions/index';
+import { filterActiveItems } from '../utils/helpers';
 
 class DeckList extends Component {
 
@@ -47,7 +48,7 @@ class DeckList extends Component {
 
 function mapStateToProps({decks, cards}) {
   return {
-    decks,
+    decks: filterActiveItems(decks),
     cards
   }
 }
