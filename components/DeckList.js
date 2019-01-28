@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { View, Text, FlatList } from 'react-native';
 import Deck from './Deck';
 import { handleInitialData } from '../actions/index';
-import { filterActiveItems } from '../utils/helpers';
+import { filterActiveItems, primaryColor } from '../utils/helpers';
+import NotFound from './NotFound';
 
 class DeckList extends Component {
 
@@ -39,7 +40,7 @@ class DeckList extends Component {
             />
           )
           }}
-          ListEmptyComponent={ <Text>No decks found 😓</Text> }
+          ListEmptyComponent={<NotFound message={'No decks found 😧'}/>}
         />
       </Fragment>
     );
