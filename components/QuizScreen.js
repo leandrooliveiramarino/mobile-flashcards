@@ -3,13 +3,14 @@ import { View, Text, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 import { defaultBorderColor, darkColor } from '../utils/helpers';
 import Header from './Header';
+import { connect } from 'react-redux';
 
-export default class QuizScreen extends Component {
+class QuizScreen extends Component {
 
   goTo = (screen, options) => this.props.navigation.navigate(screen, options);
 
   render() {
-    const { deck, amountCards } = this.props.navigation.state.params;
+    const { deck, amountCards } = this.props;
 
     return (
       <Fragment>
@@ -24,13 +25,17 @@ export default class QuizScreen extends Component {
               buttonStyle={styles.btnSubmit}
               onPress={() => this.goTo('CreateQuizQuestionScreen', { deckId: deck.id })}
             />
-            <Button
-              large
-              icon={{name: 'play', type: 'font-awesome'}}
-              title='Start a Quiz'
-              buttonStyle={styles.btnSubmit}
-              onPress={() => this.goTo('QuizContentScreen', { deckId: deck.id })}
-            />
+            {
+              !!amountCards && (
+                <Button
+                  large
+                  icon={{name: 'play', type: 'font-awesome'}}
+                  title='Start a Quiz'
+                  buttonStyle={styles.btnSubmit}
+                  onPress={() => this.goTo('QuizContentScreen', { deckId: deck.id })}
+                />
+              )
+            }
           </View>
         </View>
         <Text style={styles.amountCardsLeft}>{amountCards} cards</Text>
@@ -38,6 +43,17 @@ export default class QuizScreen extends Component {
     );
   }
 }
+
+function mapStateToProps({decks, cards}, props) {
+  const { deck, amountCards } = props.navigation.state.params;
+
+  return {
+    amountCards: Object.keys(cards).filter(cardId => cards[cardId].deckId === deck.id).length,
+    deck: deck
+  }
+}
+
+export default connect(mapStateToProps)(QuizScreen);
 
 const styles = StyleSheet.create({
   view: {

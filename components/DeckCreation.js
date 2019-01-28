@@ -45,6 +45,7 @@ class DeckCreation extends Component {
               onChangeText={this.handleTextChange}
               value={this.state.title}
               inputStyle={{borderBottomWidth: 1, borderBottomColor: '#cecece'}}
+              maxLength={15}
             />
             {
               !this.state.title

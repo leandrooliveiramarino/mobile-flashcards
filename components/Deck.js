@@ -1,22 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Card, ListItem, Button } from 'react-native-elements';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { darkColor, activeOpacity } from '../utils/helpers';
+import { connect } from 'react-redux';
 
-export default function Deck({navigation, deck, amountCards}) {
-  return (
-    <TouchableOpacity activeOpacity={activeOpacity} onPress={() => {
-      navigation.navigate('QuizScreen', {deck, amountCards})
-    }}>
-      <Card title={deck.title} containerStyle={styles.card} titleStyle={styles.cardTitle}>
-        <View style={styles.deckBody}>
-          <Text style={{fontSize: 80, color: darkColor}}>{deck.title.charAt(0)}</Text>
-          <Text style={styles.amountCards}>{amountCards} cards</Text>
-        </View>
-      </Card>
-    </TouchableOpacity>
-  );
+class Deck extends Component {
+  render() {
+    const {navigation, deck, amountCards} = this.props;
+
+    return (
+      <TouchableOpacity activeOpacity={activeOpacity} onPress={() => {
+        navigation.navigate('QuizScreen', {deck})
+      }}>
+        <Card title={deck.title} containerStyle={styles.card} titleStyle={styles.cardTitle}>
+          <View style={styles.deckBody}>
+            <Text style={{fontSize: 80, color: darkColor}}>{deck.title.charAt(0)}</Text>
+            <Text style={styles.amountCards}>{amountCards} cards</Text>
+          </View>
+        </Card>
+      </TouchableOpacity>
+    );
+  }
 }
+
+export default connect()(Deck);
 
 const styles = StyleSheet.create({
   card: {
