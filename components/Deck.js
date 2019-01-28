@@ -44,7 +44,8 @@ const styles = StyleSheet.create({
     borderColor: darkColor,
     borderRadius: 5,
     margin: 0,
-    marginTop: 30,
+    marginTop: 15,
+    marginBottom: 15,
   },
   cardTitle: {
     color: darkColor

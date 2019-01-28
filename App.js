@@ -6,7 +6,7 @@ import { StyleSheet, Text, View, Image, FlatList, Platform } from 'react-native'
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import DeckList from './components/DeckList';
 import SystemTopBar from './components/SystemTopBar';
-import { primaryColor, defaultTextColor, darkColor } from './utils/helpers';
+import { primaryColor, defaultTextColor, darkColor, backgroundColor } from './utils/helpers';
 import DeckCreation from './components/DeckCreation';
 import QuizScreen from './components/QuizScreen';
 import AnswersHistory from './components/AnswersHistory';
@@ -107,8 +107,8 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    justifyContent: 'center'
+    backgroundColor: backgroundColor,
+    justifyContent: 'center',
   }
 });
 

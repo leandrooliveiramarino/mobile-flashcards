@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Text, FlatList } from 'react-native';
 import Deck from './Deck';
@@ -23,26 +23,25 @@ class DeckList extends Component {
     const { navigation, decks, cards } = this.props;
 
     return (
-      <Fragment>
-        <FlatList
-          style={{padding: 25}}
-          columnWrapperStyle={{justifyContent: 'space-between'}}
-          data={Object.keys(decks)}
-          keyExtractor={item => item.id}
-          horizontal={false}
-          numColumns={2}
-          renderItem={({item}) => {
-           return (
-            <Deck
-              deck={decks[item]}
-              amountCards={this.amountCards(item)}
-              navigation={navigation}
-            />
-          )
-          }}
-          ListEmptyComponent={<NotFound message={'No decks found 😧'}/>}
-        />
-      </Fragment>
+      <FlatList
+        style={{paddingLeft: 25, paddingRight: 25}}
+        columnWrapperStyle={{justifyContent: 'space-between'}}
+        data={Object.keys(decks)}
+        keyExtractor={item => item}
+        horizontal={false}
+        numColumns={2}
+        renderItem={({item}) => {
+         return (
+          <Deck
+            key={item}
+            deck={decks[item]}
+            amountCards={this.amountCards(item)}
+            navigation={navigation}
+          />
+        )
+        }}
+        ListEmptyComponent={<NotFound message={'No decks found 😧'}/>}
+      />
     );
   }
 }
