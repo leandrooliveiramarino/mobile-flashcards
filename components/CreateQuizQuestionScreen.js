@@ -76,6 +76,8 @@ class CreateQuizQuestionScreen extends Component {
           <View style={styles.form}>
             <FormLabel>Question</FormLabel>
             <FormInput
+              maxLength={50}
+              minLength={1}
               onChangeText={input => {
                 this.handleTextChange(input, 'question');
               }}
@@ -84,10 +86,12 @@ class CreateQuizQuestionScreen extends Component {
             {
               !this.state.question.value
                 && this.state.question.startedTyping
-                && <FormValidationMessage>This field must have between 10 and 100 characters</FormValidationMessage>
+                && <FormValidationMessage>This field must have between 1 and 50 characters</FormValidationMessage>
             }
             <FormLabel>Answer</FormLabel>
             <FormInput
+              maxLength={50}
+              minLength={1}
               onChangeText={input => {
                 this.handleTextChange(input, 'answer');
               }}
@@ -96,7 +100,7 @@ class CreateQuizQuestionScreen extends Component {
             {
               !this.state.answer.value
                 && this.state.answer.startedTyping
-                && <FormValidationMessage>This field must have between 10 and 100 characters</FormValidationMessage>
+                && <FormValidationMessage>This field must have between 1 and 50 characters</FormValidationMessage>
             }
           </View>
           <Button

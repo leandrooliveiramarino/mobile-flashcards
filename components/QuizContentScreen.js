@@ -114,7 +114,8 @@ class QuizContentScreen extends Component {
         <Header navigation={this.props.navigation}/>
         <View style={styles.view}>
         {
-          currentCard && <Text style={styles.questionsLeft}>Questions left: {this.state.cards.length - this.state.cardsAnswered.length}</Text>
+          currentCard && <Text style={styles.questionsLeft}>Quiz: {`${this.state.cardsAnswered.length + 1}/${this.state.cards.length}`}
+          </Text>
         }
         {
           /**

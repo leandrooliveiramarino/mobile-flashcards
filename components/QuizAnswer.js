@@ -1,15 +1,31 @@
 import React, { Component, Fragment } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Animated } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
 import { defaultBorderColor, darkColor } from '../utils/helpers';
 
 export default class QuizAnswer extends Component {
+
+  state = {
+    bounceValue: new Animated.Value(1),
+  }
+
+  componentDidMount() {
+    const { bounceValue } = this.state;
+
+    Animated.sequence([
+      Animated.timing(bounceValue, { duration: 200, toValue: 2.5}),
+      Animated.spring(bounceValue, { toValue: 1.5, friction: 4})
+    ]).start()
+  }
+
   render() {
     const { answer, id } = this.props.card;
+    const { bounceValue } = this.state;
+
     return (
       <Fragment>
         <View style={styles.card}>
-          <Text style={styles.textContent}>{answer}</Text>
+          <Animated.Text style={[styles.textContent, {transform: [{scale: bounceValue}]}]}>{answer}</Animated.Text>
         </View>
         <View style={styles.buttonsContainer}>
           <Button
@@ -66,6 +82,7 @@ const styles = StyleSheet.create({
   textContent: {
     fontSize: 30,
     padding: 30,
+    width: '50%',
     textAlign: 'center'
   }
 });
