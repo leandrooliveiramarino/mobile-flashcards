@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
-import { defaultBorderColor, darkColor } from '../utils/helpers';
+import { defaultBorderColor, darkColor, generateUID } from '../utils/helpers';
 import { handleAddDeck } from '../actions/decks.js';
 import { connect } from 'react-redux';
 
@@ -17,10 +17,12 @@ class DeckCreation extends Component {
       ...prevState,
       startedTyping: true,
       title: input
-    }))
+    }));
   }
 
   handleSubmit = () => {
+    const id = generateUID();
+
     if(!this.state.title) {
       this.setState(prevState => ({
         ...prevState,
@@ -28,46 +30,52 @@ class DeckCreation extends Component {
       }));
       return;
     }
-    this.props.handleAddDeck(this.state.title);
+
+    const deck = {
+      id,
+      title: this.state.title
+    };
+
+    this.props.handleAddDeck(deck);
     this.setState({
       title: '',
       startedTyping: false
     });
+
+    return deck;
   }
 
   render() {
     return (
-      <Fragment>
-        <View style={styles.view}>
-          <View style={styles.form}>
-            <FormLabel>Deck Name</FormLabel>
-            <FormInput
-              onChangeText={this.handleTextChange}
-              value={this.state.title}
-              inputStyle={{borderBottomWidth: 1, borderBottomColor: '#cecece'}}
-              maxLength={15}
-            />
-            {
-              !this.state.title
-                && this.state.startedTyping
-                && <FormValidationMessage>The deck name must have at least one character</FormValidationMessage>
-            }
-          </View>
-          <Button
-            large
-            icon={{name: 'check', type: 'font-awesome'}}
-            title='CREATE DECK'
-            buttonStyle={styles.btnSubmit}
-            onPress={() => {
-              /**
-               * Apenas redireciona o usuário para a outra aba se o title estiver preenchido
-               */
-              this.state.title && this.props.navigation.navigate('DeckList');
-              this.handleSubmit();
-            }}
+      <View style={styles.view}>
+        <View style={styles.form}>
+          <FormLabel>Deck Name</FormLabel>
+          <FormInput
+            onChangeText={this.handleTextChange}
+            value={this.state.title}
+            inputStyle={{borderBottomWidth: 1, borderBottomColor: '#cecece'}}
+            maxLength={15}
           />
+          {
+            !this.state.title
+              && this.state.startedTyping
+              && <FormValidationMessage>The deck name must have at least one character</FormValidationMessage>
+          }
         </View>
-      </Fragment>
+        <Button
+          large
+          icon={{name: 'check', type: 'font-awesome'}}
+          title='CREATE DECK'
+          buttonStyle={styles.btnSubmit}
+          onPress={() => {
+            const deck = this.handleSubmit();
+            /**
+             * Apenas redireciona o usuário para a outra aba se o title estiver preenchido
+             */
+            this.state.title && this.props.navigation.navigate('QuizScreen', { deck });
+          }}
+        />
+      </View>
     );
   }
 }

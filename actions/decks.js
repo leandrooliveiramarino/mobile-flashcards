@@ -35,12 +35,7 @@ function _saveDeck(deck) {
   }
 }
 
-export function handleAddDeck(title) {
-  const deck = {
-    id: generateUID(),
-    title
-  };
-
+export function handleAddDeck(deck) {
   return dispatch => {
     return saveDeck(deck).then(deck => {
       dispatch(_saveDeck(deck));
