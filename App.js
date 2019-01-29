@@ -6,7 +6,14 @@ import { StyleSheet, Text, View, Image, FlatList, Platform } from 'react-native'
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import DeckList from './components/DeckList';
 import SystemTopBar from './components/SystemTopBar';
-import { primaryColor, defaultTextColor, darkColor, backgroundColor } from './utils/helpers';
+import {
+  primaryColor,
+  defaultTextColor,
+  darkColor,
+  backgroundColor,
+  setLocalNotification,
+  clearLocalNotification
+} from './utils/helpers';
 import DeckCreation from './components/DeckCreation';
 import QuizScreen from './components/QuizScreen';
 import AnswersHistory from './components/AnswersHistory';
@@ -91,6 +98,11 @@ const Stack = StackNavigator({
 })
 
 export default class App extends React.Component {
+
+  componentDidMount() {
+    clearLocalNotification();
+    setLocalNotification();
+  }
 
   render() {
     return (
