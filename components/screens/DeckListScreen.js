@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FlatList } from 'react-native';
-import Deck from './Deck';
-import { handleInitialData } from '../actions/index';
-import { filterActiveItems } from '../utils/helpers';
-import NotFound from './NotFound';
+import Deck from '../Deck';
+import { handleInitialData } from '../../actions/index';
+import { filterActiveItems } from '../../utils/helpers';
+import NotFound from '../NotFound';
 import PropTypes from 'prop-types';
 
-class DeckList extends Component {
+class DeckListScreen extends Component {
 
   static propTypes = {
     handleInitialData: PropTypes.func.isRequired,
@@ -67,4 +67,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DeckList);
+export default connect(mapStateToProps, mapDispatchToProps)(DeckListScreen);

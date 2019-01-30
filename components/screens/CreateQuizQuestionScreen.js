@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import { View, StyleSheet, KeyboardAvoidingView } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
-import { darkColor, defaultBorderColor } from '../utils/helpers';
-import Header from './Header';
-import { handleAddCard } from '../actions/cards.js';
+import { darkColor, defaultBorderColor } from '../../utils/helpers';
+import Header from '../Header';
+import { handleAddCard } from '../../actions/cards.js';
 import { connect } from 'react-redux';
 import ReactNavigation from 'react-navigation';
 import PropTypes from 'prop-types';

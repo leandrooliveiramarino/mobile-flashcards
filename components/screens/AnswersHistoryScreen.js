@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { StyleSheet, FlatList } from 'react-native';
 import { List, ListItem } from 'react-native-elements';
-import SingleItem from './SingleItem';
+import SingleItem from '../SingleItem';
 import { connect } from 'react-redux';
-import { formatDate, alert } from '../utils/helpers';
-import { handleRemoveHistory } from '../actions/answersHistory';
-import NotFound from './NotFound';
+import { formatDate, alert } from '../../utils/helpers';
+import { handleRemoveHistory } from '../../actions/answersHistory';
+import NotFound from '../NotFound';
 import PropTypes from 'prop-types';
 
-class AnswersHistory extends Component {
+class AnswersHistoryScreen extends Component {
 
   static propTypes = {
     answersHistory: PropTypes.array.isRequired,
@@ -101,4 +101,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(AnswersHistory);
+export default connect(mapStateToProps, mapDispatchToProps)(AnswersHistoryScreen);

@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import Header from './Header';
-import QuizQuestion from './QuizQuestion';
-import QuizAnswer from './QuizAnswer';
-import QuizResult from './QuizResult';
+import Header from '../Header';
+import QuizQuestion from '../QuizQuestion';
+import QuizAnswer from '../QuizAnswer';
+import QuizResult from '../QuizResult';
 import { connect } from 'react-redux';
-import { handleAddHistory } from '../actions/answersHistory';
+import { handleAddHistory } from '../../actions/answersHistory';
 import PropTypes from 'prop-types';
 
 class QuizContentScreen extends Component {

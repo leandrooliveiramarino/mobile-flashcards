@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
-import { darkColor } from '../utils/helpers';
-import Header from './Header';
+import { darkColor } from '../../utils/helpers';
+import Header from '../Header';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 

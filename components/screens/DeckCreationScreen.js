@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, KeyboardAvoidingView } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
-import { darkColor, generateUID } from '../utils/helpers';
-import { handleAddDeck } from '../actions/decks.js';
+import { darkColor, generateUID } from '../../utils/helpers';
+import { handleAddDeck } from '../../actions/decks.js';
 import { connect } from 'react-redux';
 import { Header } from 'react-navigation';
 import PropTypes from 'prop-types';
 
-class DeckCreation extends Component {
+class DeckCreationScreen extends Component {
 
   static propTypes = {
     handleAddDeck: PropTypes.func.isRequired,
@@ -97,7 +97,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(null, mapDispatchToProps)(DeckCreation);
+export default connect(null, mapDispatchToProps)(DeckCreationScreen);
 
 const styles = StyleSheet.create({
   view: {
