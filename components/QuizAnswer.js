@@ -1,13 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import { View, Text, StyleSheet, Animated } from 'react-native';
-import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import { defaultBorderColor, darkColor } from '../utils/helpers';
 
 export default class QuizAnswer extends Component {
 
   state = {
     bounceValue: new Animated.Value(1),
-  }
+  };
 
   componentDidMount() {
     const { bounceValue } = this.state;
@@ -15,7 +15,7 @@ export default class QuizAnswer extends Component {
     Animated.sequence([
       Animated.timing(bounceValue, { duration: 200, toValue: 2.5}),
       Animated.spring(bounceValue, { toValue: 1.5, friction: 4})
-    ]).start()
+    ]).start();
   }
 
   render() {

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
-import { defaultBorderColor, darkColor } from '../utils/helpers';
+import { darkColor } from '../utils/helpers';
 import Header from './Header';
 import { connect } from 'react-redux';
 
@@ -50,7 +50,7 @@ function mapStateToProps({decks, cards}, props) {
   return {
     amountCards: Object.keys(cards).filter(cardId => cards[cardId].deckId === deck.id).length,
     deck: deck
-  }
+  };
 }
 
 export default connect(mapStateToProps)(QuizScreen);

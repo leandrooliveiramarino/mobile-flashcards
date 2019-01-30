@@ -8,6 +8,6 @@ export function handleInitialData() {
     .then(({decks, cards, answersHistory}) => {
       dispatch(getAllDecks(decks));
       dispatch(getAllCards(cards));
-      dispatch(getAnswersHistory(answersHistory))
+      dispatch(getAnswersHistory(answersHistory));
     });
 }

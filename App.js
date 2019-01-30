@@ -1,15 +1,14 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { createStore } from 'redux'
 import { Provider } from 'react-redux';
 import reducer from './reducers'
-import { StyleSheet, Text, View, Image, FlatList, Platform } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 import DeckList from './components/DeckList';
 import SystemTopBar from './components/SystemTopBar';
 import {
   primaryColor,
   defaultTextColor,
-  darkColor,
   backgroundColor,
   setLocalNotification,
   clearLocalNotification
@@ -19,7 +18,6 @@ import QuizScreen from './components/QuizScreen';
 import AnswersHistory from './components/AnswersHistory';
 import CreateQuizQuestionScreen from './components/CreateQuizQuestionScreen';
 import QuizContentScreen from './components/QuizContentScreen';
-import { FontAwesome, Ionicons } from '@expo/vector-icons';
 import middleware from './middleware';
 
 const Tabs = TabNavigator({
@@ -95,7 +93,7 @@ const Stack = StackNavigator({
   }
 }, {
   headerMode: 'none'
-})
+});
 
 export default class App extends React.Component {
 

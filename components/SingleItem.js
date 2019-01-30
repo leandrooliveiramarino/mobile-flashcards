@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { defaultTextColor, defaultBorderColor, primaryColor, activeOpacity } from '../utils/helpers';
+import { defaultBorderColor, primaryColor, activeOpacity } from '../utils/helpers';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 
 class SingleItem extends Component {

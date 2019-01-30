@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Text, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import Deck from './Deck';
 import { handleInitialData } from '../actions/index';
-import { filterActiveItems, primaryColor } from '../utils/helpers';
+import { filterActiveItems } from '../utils/helpers';
 import NotFound from './NotFound';
 
 class DeckList extends Component {
@@ -50,13 +50,13 @@ function mapStateToProps({decks, cards}) {
   return {
     decks: filterActiveItems(decks),
     cards
-  }
+  };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     handleInitialData: () => dispatch(handleInitialData())
-  }
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(DeckList);

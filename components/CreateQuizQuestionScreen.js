@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
-import { defaultBorderColor, darkColor } from '../utils/helpers';
+import { darkColor, defaultBorderColor } from '../utils/helpers';
 import Header from './Header';
 import { handleAddCard } from '../actions/cards.js';
 import { connect } from 'react-redux';
@@ -17,7 +17,7 @@ class CreateQuizQuestionScreen extends Component {
       value: '',
       startedTyping: false
     }
-  }
+  };
 
   handleTextChange = (input, field) => {
     this.setState(prevState => ({
@@ -26,8 +26,8 @@ class CreateQuizQuestionScreen extends Component {
         startedTyping: true,
         value: input
       }
-    }))
-  }
+    }));
+  };
 
   handleSubmit = () => {
 
@@ -66,7 +66,7 @@ class CreateQuizQuestionScreen extends Component {
         startedTyping: false
       }
     });
-  }
+  };
 
   render() {
     return (
@@ -81,7 +81,7 @@ class CreateQuizQuestionScreen extends Component {
               onChangeText={input => {
                 this.handleTextChange(input, 'question');
               }}
-              inputStyle={{borderBottomWidth: 1, borderBottomColor: '#cecece'}}
+              inputStyle={{borderBottomWidth: 1, borderBottomColor: defaultBorderColor}}
             />
             {
               !this.state.question.value
@@ -95,7 +95,7 @@ class CreateQuizQuestionScreen extends Component {
               onChangeText={input => {
                 this.handleTextChange(input, 'answer');
               }}
-              inputStyle={{borderBottomWidth: 1, borderBottomColor: '#cecece'}}
+              inputStyle={{borderBottomWidth: 1, borderBottomColor: defaultBorderColor}}
             />
             {
               !this.state.answer.value
@@ -122,7 +122,7 @@ class CreateQuizQuestionScreen extends Component {
 function mapDispatchToProps(dispatch) {
   return {
     handleAddCard: card => dispatch(handleAddCard(card))
-  }
+  };
 }
 
 export default connect(null, mapDispatchToProps)(CreateQuizQuestionScreen);

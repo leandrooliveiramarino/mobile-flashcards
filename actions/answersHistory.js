@@ -9,21 +9,21 @@ function _saveAnswersHistory(history) {
   return {
     type: ADD_ANSWER_HISTORY,
     history
-  }
+  };
 }
 
 function _removeAnswerHistory(history) {
   return {
     type: REMOVE_ANSWERS_HISTORY,
     history
-  }
+  };
 }
 
 export function getAnswersHistory(histories) {
   return {
     type: GET_HISTORIES,
     histories
-  }
+  };
 }
 
 export function handleGetHistory() {
@@ -32,7 +32,7 @@ export function handleGetHistory() {
       .then(data => {
         dispatch(getAnswersHistory(JSON.parse(data)))
       });
-  }
+  };
 }
 
 export function handleAddHistory(deckId, answers) {
@@ -46,8 +46,8 @@ export function handleAddHistory(deckId, answers) {
   return dispatch => {
     return saveAnswersHistory(history).then(history => {
       dispatch(_saveAnswersHistory(history));
-    })
-  }
+    });
+  };
 }
 
 export function handleRemoveHistory(historyId) {
@@ -56,5 +56,5 @@ export function handleRemoveHistory(historyId) {
       .then((history) => {
         dispatch(_removeAnswerHistory(history));
       });
-  }
+  };
 }

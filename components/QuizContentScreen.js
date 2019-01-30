@@ -1,8 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
-import { defaultBorderColor, darkColor } from '../utils/helpers';
-import SystemTopBar from './SystemTopBar';
 import Header from './Header';
 import QuizQuestion from './QuizQuestion';
 import QuizAnswer from './QuizAnswer';
@@ -17,7 +14,7 @@ class QuizContentScreen extends Component {
     cardsAnswered: [],
     cards: [],
     answerHistory: []
-  }
+  };
 
   componentDidMount() {
     this.setState(prevState => ({
@@ -44,28 +41,28 @@ class QuizContentScreen extends Component {
       cardsAnswered: [],
       answerHistory: []
     }));
-  }
+  };
 
   getCardsFromDeck = () => {
     const { deckId } = this.props.navigation.state.params;
     const { cards } = this.props;
 
     return Object.keys(cards).filter(cardId => cards[cardId].deckId === deckId);
-  }
+  };
 
   showAnswer = () => {
     this.setState(prevState => ({
       ...prevState,
       showAnswer: true
     }))
-  }
+  };
 
   hideQuestion = () => {
     this.setState(prevState => ({
       ...prevState,
       showAnswer: false
-    }))
-  }
+    }));
+  };
 
   currentCard = () => {
     const { cards } = this.props;
@@ -75,7 +72,7 @@ class QuizContentScreen extends Component {
     return cardsToAnswer.length
       ? cards[cardsToAnswer[0]]
       : null;
-  }
+  };
 
   markAsAnswered = (id, answer) => {
     /**
@@ -97,13 +94,13 @@ class QuizContentScreen extends Component {
     const correctAnswers = this.state.answerHistory.filter(history => history.answer).length;
 
     return `${correctAnswers}/${amountQuestions}`;
-  }
+  };
 
   saveHistory = () => {
     const { deckId } = this.props.navigation.state.params;
 
-    this.props.dispatch(handleAddHistory(deckId, this.state.answerHistory))
-  }
+    this.props.handleAddHistory(deckId, this.state.answerHistory);
+  };
 
   render() {
 
@@ -147,10 +144,16 @@ class QuizContentScreen extends Component {
 function mapStateToProps({cards}) {
   return {
     cards
-  }
+  };
 }
 
-export default connect(mapStateToProps)(QuizContentScreen);
+function mapDispatchToProps(dispatch) {
+  return {
+    handleAddHistory: (deckId, answerHistory) => dispatch(handleAddHistory(deckId, answerHistory))
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(QuizContentScreen);
 
 const styles = StyleSheet.create({
   view: {

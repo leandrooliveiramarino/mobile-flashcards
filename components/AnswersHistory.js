@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, FlatList, View, Text } from 'react-native';
+import { StyleSheet, FlatList } from 'react-native';
 import { List, ListItem } from 'react-native-elements';
 import SingleItem from './SingleItem';
 import { connect } from 'react-redux';
@@ -8,14 +8,14 @@ import { handleRemoveHistory } from '../actions/answersHistory';
 import NotFound from './NotFound';
 
 class AnswersHistory extends Component {
-  renderRow({ item }, dispatch) {
+  renderRow({ item }, handleRemoveHistory) {
     return (
       <ListItem
         onLongPress={() => {alert({
           title: 'Remove History',
           subtitle: 'Do you really want to remove this item?',
           onPositiveAnswer: () => {
-            dispatch(handleRemoveHistory(item.id));
+            handleRemoveHistory(item.id);
           }
         })}}
         component={(props) => (
@@ -27,20 +27,20 @@ class AnswersHistory extends Component {
           />
         )}
       />
-    )
+    );
   }
 
-  render () {
+  render() {
     return (
       <List containerStyle={styles.list}>
         <FlatList
           data={this.props.answersHistory}
-          renderItem={(props) => this.renderRow({...props}, this.props.dispatch)}
+          renderItem={(props) => this.renderRow({...props}, this.props.handleRemoveHistory)}
           keyExtractor={item => item.id}
           ListEmptyComponent={<NotFound message={'No history found 🤔'}/>}
         />
       </List>
-    )
+    );
   }
 }
 
@@ -57,6 +57,12 @@ const processScore = answers => {
 const score = answers => {
   const { correctAnswers, amountQuestions } = processScore(answers);
   return `${correctAnswers}/${amountQuestions}`;
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    handleRemoveHistory: id => dispatch(handleRemoveHistory(id))
+  }
 }
 
 function mapStateToProps({decks, answersHistory}, ) {
@@ -87,4 +93,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default connect(mapStateToProps)(AnswersHistory);
+export default connect(mapStateToProps, mapDispatchToProps)(AnswersHistory);

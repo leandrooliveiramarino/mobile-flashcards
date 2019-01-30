@@ -6,7 +6,7 @@ export default function answersHistory(state = {}, action) {
       return {
         ...state,
         ...action.histories
-      }
+      };
     case ADD_ANSWER_HISTORY:
       return {
         ...state,

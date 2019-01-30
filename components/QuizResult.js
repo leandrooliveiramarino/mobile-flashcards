@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import { defaultBorderColor, darkColor } from '../utils/helpers';
 
 export default class QuizResult extends Component {

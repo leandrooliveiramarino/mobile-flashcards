@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
-import { defaultBorderColor, darkColor, generateUID } from '../utils/helpers';
+import { darkColor, generateUID } from '../utils/helpers';
 import { handleAddDeck } from '../actions/decks.js';
 import { connect } from 'react-redux';
 
@@ -10,7 +10,7 @@ class DeckCreation extends Component {
   state = {
     title: '',
     startedTyping: false
-  }
+  };
 
   handleTextChange = input => {
     this.setState(prevState => ({
@@ -18,7 +18,7 @@ class DeckCreation extends Component {
       startedTyping: true,
       title: input
     }));
-  }
+  };
 
   handleSubmit = () => {
     const id = generateUID();
@@ -82,8 +82,8 @@ class DeckCreation extends Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    handleAddDeck: (title) => dispatch(handleAddDeck(title))
-  }
+    handleAddDeck: title => dispatch(handleAddDeck(title))
+  };
 }
 
 export default connect(null, mapDispatchToProps)(DeckCreation);
