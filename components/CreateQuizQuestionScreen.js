@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, KeyboardAvoidingView } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
 import { darkColor, defaultBorderColor } from '../utils/helpers';
 import Header from './Header';
 import { handleAddCard } from '../actions/cards.js';
 import { connect } from 'react-redux';
+import ReactNavigation from 'react-navigation';
 import PropTypes from 'prop-types';
 
 class CreateQuizQuestionScreen extends Component {
@@ -78,7 +79,11 @@ class CreateQuizQuestionScreen extends Component {
     return (
       <Fragment>
         <Header navigation={this.props.navigation}/>
-        <View style={styles.view}>
+          <KeyboardAvoidingView
+            behavior='padding'
+            keyboardVerticalOffset={ReactNavigation.Header.HEIGHT}
+            style={styles.view}
+          >
           <View style={styles.form}>
             <FormLabel>Question</FormLabel>
             <FormInput
@@ -119,7 +124,7 @@ class CreateQuizQuestionScreen extends Component {
               this.props.navigation.goBack();
             }}
           />
-        </View>
+        </KeyboardAvoidingView>
       </Fragment>
     );
   }

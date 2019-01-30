@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, KeyboardAvoidingView } from 'react-native';
 import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-native-elements';
 import { darkColor, generateUID } from '../utils/helpers';
 import { handleAddDeck } from '../actions/decks.js';
 import { connect } from 'react-redux';
+import { Header } from 'react-navigation';
 import PropTypes from 'prop-types';
 
 class DeckCreation extends Component {
@@ -53,7 +54,11 @@ class DeckCreation extends Component {
 
   render() {
     return (
-      <View style={styles.view}>
+      <KeyboardAvoidingView
+        behavior='padding'
+        keyboardVerticalOffset={Header.HEIGHT + 20}
+        style={styles.view}
+      >
         <View style={styles.form}>
           <FormLabel>Deck Name</FormLabel>
           <FormInput
@@ -81,7 +86,7 @@ class DeckCreation extends Component {
             this.state.title && this.props.navigation.navigate('QuizScreen', { deck });
           }}
         />
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
