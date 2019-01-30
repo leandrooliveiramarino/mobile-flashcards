@@ -1,4 +1,4 @@
-# Readable
+# Mobile Flashcards
 
 ## [**[ Check the live project on expo.io ]**](https://expo.io/@leandromarino/mobile-flashcards)
 
