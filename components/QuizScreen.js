@@ -4,8 +4,15 @@ import { Button } from 'react-native-elements';
 import { darkColor } from '../utils/helpers';
 import Header from './Header';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class QuizScreen extends Component {
+
+  static propTypes = {
+    deck: PropTypes.object.isRequired,
+    amountCards: PropTypes.number.isRequired,
+    navigation: PropTypes.object.isRequired
+  }
 
   goTo = (screen, options) => this.props.navigation.navigate(screen, options);
 

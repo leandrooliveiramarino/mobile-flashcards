@@ -1,8 +1,17 @@
 import React, { Component } from 'react';
 import { defaultBorderColor, primaryColor, activeOpacity } from '../utils/helpers';
 import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
+import PropTypes from 'prop-types';
 
 class SingleItem extends Component {
+
+  static propTypes = {
+    onLongPress: PropTypes.func.isRequired,
+    title: PropTypes.string.isRequired,
+    answerDate: PropTypes.string.isRequired,
+    score: PropTypes.string.isRequired
+  };
+
   render() {
     return (
       <TouchableOpacity activeOpacity={activeOpacity} onLongPress={this.props.onLongPress}>

@@ -2,8 +2,16 @@ import React, { Component, Fragment } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 import { defaultBorderColor, darkColor } from '../utils/helpers';
+import PropTypes from 'prop-types';
 
 export default class QuizResult extends Component {
+
+  static propTypes = {
+    score: PropTypes.string.isRequired,
+    restartQuiz: PropTypes.func.isRequired,
+    saveHistory: PropTypes.func.isRequired,
+    navigation: PropTypes.object.isRequired,
+  };
 
   render() {
     return (

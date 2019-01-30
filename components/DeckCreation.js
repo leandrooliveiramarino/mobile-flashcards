@@ -4,8 +4,14 @@ import { FormLabel, FormInput, FormValidationMessage, Button } from 'react-nativ
 import { darkColor, generateUID } from '../utils/helpers';
 import { handleAddDeck } from '../actions/decks.js';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class DeckCreation extends Component {
+
+  static propTypes = {
+    handleAddDeck: PropTypes.func.isRequired,
+    navigation: PropTypes.object.isRequired
+  };
 
   state = {
     title: '',

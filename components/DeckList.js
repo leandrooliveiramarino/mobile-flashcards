@@ -5,8 +5,16 @@ import Deck from './Deck';
 import { handleInitialData } from '../actions/index';
 import { filterActiveItems } from '../utils/helpers';
 import NotFound from './NotFound';
+import PropTypes from 'prop-types';
 
 class DeckList extends Component {
+
+  static propTypes = {
+    handleInitialData: PropTypes.func.isRequired,
+    navigation: PropTypes.object.isRequired,
+    decks: PropTypes.object.isRequired,
+    cards: PropTypes.object.isRequired,
+  }
 
   componentDidMount() {
     this.props.handleInitialData();

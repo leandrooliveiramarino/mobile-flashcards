@@ -2,8 +2,14 @@ import React, { Component, Fragment } from 'react';
 import { View, Text, StyleSheet, Animated } from 'react-native';
 import { Button } from 'react-native-elements';
 import { defaultBorderColor, darkColor } from '../utils/helpers';
+import PropTypes from 'prop-types';
 
 export default class QuizQuestion extends Component {
+
+  static propTypes = {
+    card: PropTypes.object.isRequired,
+    showAnswer: PropTypes.func.isRequired
+  };
 
   state = {
     bounceValue: new Animated.Value(1),

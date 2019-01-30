@@ -2,8 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { primaryColor, defaultTextColor, activeOpacity } from '../utils/helpers';
+import PropTypes from 'prop-types';
 
-export default function Header({navigation}) {
+const Header = ({navigation}) => {
   return (
     <View style={styles.header}>
       <TouchableOpacity activeOpacity={activeOpacity} onPress={() => navigation.goBack()}>
@@ -18,6 +19,12 @@ export default function Header({navigation}) {
     </View>
   );
 }
+
+Header.propTypes = {
+  navigation: PropTypes.object.isRequired
+};
+
+export default Header;
 
 const styles = StyleSheet.create({
   menuItem: {

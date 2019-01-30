@@ -5,8 +5,14 @@ import { darkColor, defaultBorderColor } from '../utils/helpers';
 import Header from './Header';
 import { handleAddCard } from '../actions/cards.js';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class CreateQuizQuestionScreen extends Component {
+
+  static propTypes = {
+    handleAddCard: PropTypes.func.isRequired,
+    navigation: PropTypes.object.isRequired
+  };
 
   state = {
     question: {

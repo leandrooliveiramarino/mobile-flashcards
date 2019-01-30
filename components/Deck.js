@@ -4,8 +4,17 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { darkColor, activeOpacity, alert } from '../utils/helpers';
 import { connect } from 'react-redux';
 import { handleRemoveDeck } from '../actions/decks';
+import PropTypes from 'prop-types';
 
 class Deck extends Component {
+
+  static propTypes = {
+    navigation: PropTypes.object.isRequired,
+    deck: PropTypes.object.isRequired,
+    amountCards: PropTypes.number.isRequired,
+    dispatch: PropTypes.func.isRequired
+  };
+
   render() {
     const { navigation, deck, amountCards, dispatch } = this.props;
 

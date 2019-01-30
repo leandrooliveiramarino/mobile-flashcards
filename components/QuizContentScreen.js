@@ -6,8 +6,15 @@ import QuizAnswer from './QuizAnswer';
 import QuizResult from './QuizResult';
 import { connect } from 'react-redux';
 import { handleAddHistory } from '../actions/answersHistory';
+import PropTypes from 'prop-types';
 
 class QuizContentScreen extends Component {
+
+  static propTypes = {
+    cards: PropTypes.object.isRequired,
+    handleAddHistory: PropTypes.func.isRequired,
+    navigation: PropTypes.object.isRequired
+  };
 
   state = {
     showAnswer: false,

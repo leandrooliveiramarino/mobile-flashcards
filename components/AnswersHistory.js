@@ -6,8 +6,15 @@ import { connect } from 'react-redux';
 import { formatDate, alert } from '../utils/helpers';
 import { handleRemoveHistory } from '../actions/answersHistory';
 import NotFound from './NotFound';
+import PropTypes from 'prop-types';
 
 class AnswersHistory extends Component {
+
+  static propTypes = {
+    answersHistory: PropTypes.array.isRequired,
+    handleRemoveHistory: PropTypes.func.isRequired,
+  };
+
   renderRow({ item }, handleRemoveHistory) {
     return (
       <ListItem
