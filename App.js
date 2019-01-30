@@ -9,9 +9,7 @@ import SystemTopBar from './components/SystemTopBar';
 import {
   primaryColor,
   defaultTextColor,
-  backgroundColor,
-  setLocalNotification,
-  clearLocalNotification
+  backgroundColor
 } from './utils/helpers';
 import DeckCreationScreen from './components/screens/DeckCreationScreen';
 import QuizScreen from './components/screens/QuizScreen';
@@ -96,12 +94,6 @@ const Stack = StackNavigator({
 });
 
 export default class App extends React.Component {
-
-  componentDidMount() {
-    clearLocalNotification();
-    setLocalNotification();
-  }
-
   render() {
     return (
       <Provider store={createStore(reducer, middleware)}>

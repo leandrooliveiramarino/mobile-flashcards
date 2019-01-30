@@ -140,6 +140,7 @@ class QuizContentScreen extends Component {
                 saveHistory={this.saveHistory}
                 restartQuiz={this.restartQuiz}
                 score={this.getScore()}
+                isFinished={currentCard === null}
               />
         }
         </View>

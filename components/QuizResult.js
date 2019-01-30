@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
-import { defaultBorderColor, darkColor } from '../utils/helpers';
+import { defaultBorderColor, darkColor, clearLocalNotification, setLocalNotification } from '../utils/helpers';
 import PropTypes from 'prop-types';
 
 export default class QuizResult extends Component {
@@ -11,7 +11,18 @@ export default class QuizResult extends Component {
     restartQuiz: PropTypes.func.isRequired,
     saveHistory: PropTypes.func.isRequired,
     navigation: PropTypes.object.isRequired,
+    isFinished: PropTypes.bool.isRequired
   };
+
+  componentDidUpdate() {
+    /**
+     * Se usuário finalizou o quiz, notificá-lo no dia seguinte e não mais no dia corrente
+     */
+    if(this.props.isFinished) {
+      clearLocalNotification();
+      setLocalNotification();
+    }
+  }
 
   render() {
     return (
