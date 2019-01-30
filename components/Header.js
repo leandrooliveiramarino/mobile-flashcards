@@ -7,8 +7,16 @@ import PropTypes from 'prop-types';
 const Header = ({navigation}) => {
   return (
     <View style={styles.header}>
-      <TouchableOpacity activeOpacity={activeOpacity} onPress={() => navigation.goBack()}>
-        <Icon iconStyle={styles.menuItem} name='chevron-left' type='font-awesome' color='#fff' />
+      <TouchableOpacity
+        activeOpacity={activeOpacity}
+        onPress={() => navigation.goBack()}
+      >
+        <Icon
+          iconStyle={styles.menuItem}
+          name='chevron-left'
+          type='font-awesome'
+          color={defaultTextColor}
+        />
       </TouchableOpacity>
       {
         /**

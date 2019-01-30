@@ -19,8 +19,8 @@ export default class QuizAnswer extends Component {
     const { bounceValue } = this.state;
 
     Animated.sequence([
-      Animated.timing(bounceValue, { duration: 200, toValue: 2.5}),
-      Animated.spring(bounceValue, { toValue: 1.5, friction: 4})
+      Animated.timing(bounceValue, { duration: 200, toValue: 2.5 }),
+      Animated.spring(bounceValue, { toValue: 1.5, friction: 4 })
     ]).start();
   }
 
@@ -31,7 +31,13 @@ export default class QuizAnswer extends Component {
     return (
       <Fragment>
         <View style={styles.card}>
-          <Animated.Text style={[styles.textContent, {transform: [{scale: bounceValue}]}]}>{answer}</Animated.Text>
+          <Animated.Text
+            style={[
+              styles.textContent,
+              {transform: [{scale: bounceValue}]}
+            ]}
+          >{answer}
+          </Animated.Text>
         </View>
         <View style={styles.buttonsContainer}>
           <Button

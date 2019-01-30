@@ -96,7 +96,8 @@ const styles = StyleSheet.create({
     marginTop: 0,
     borderTopWidth: 1,
     borderBottomWidth: 0,
-    borderColor: 'transparent'
+    borderColor: 'transparent',
+    backgroundColor: 'transparent'
   }
 });
 

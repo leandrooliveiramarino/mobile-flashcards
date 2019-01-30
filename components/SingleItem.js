@@ -14,7 +14,10 @@ class SingleItem extends Component {
 
   render() {
     return (
-      <TouchableOpacity activeOpacity={activeOpacity} onLongPress={this.props.onLongPress}>
+      <TouchableOpacity
+        activeOpacity={activeOpacity}
+        onLongPress={this.props.onLongPress}
+      >
         <View style={styles.container}>
           <View>
             <View style={styles.title}>

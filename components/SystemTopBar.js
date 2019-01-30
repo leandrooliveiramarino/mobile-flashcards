@@ -6,8 +6,16 @@ import PropTypes from 'prop-types';
 
 export default function SystemTopBar({...props}) {
   return (
-    <View style={{ backgroundColor: primaryColor, height: Constants.statusBarHeight }}>
-      <StatusBar translucent backgroundColor={primaryColor} {...props} />
+    <View
+      style={{
+        backgroundColor: primaryColor,
+        height: Constants.statusBarHeight
+      }}
+    >
+      <StatusBar
+        translucent
+        backgroundColor={primaryColor} {...props}
+      />
     </View>
   )
 }

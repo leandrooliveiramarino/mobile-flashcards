@@ -33,9 +33,13 @@ class Deck extends Component {
         })}
       >
 
-        <Card title={deck.title} containerStyle={styles.card} titleStyle={styles.cardTitle}>
+        <Card
+          title={deck.title}
+          containerStyle={styles.card}
+          titleStyle={styles.cardTitle}
+        >
           <View style={styles.deckBody}>
-            <Text style={{fontSize: 80, color: darkColor}}>{deck.title.charAt(0)}</Text>
+            <Text style={styles.charAt}>{deck.title.charAt(0)}</Text>
             <Text style={styles.amountCards}>{amountCards} cards</Text>
           </View>
         </Card>
@@ -47,6 +51,10 @@ class Deck extends Component {
 export default connect()(Deck);
 
 const styles = StyleSheet.create({
+  charAt: {
+    fontSize: 80,
+    color: darkColor
+  },
   card: {
     width: 170,
     height: 230,
